@@ -1,3 +1,5 @@
+Download here: [ModuleInfo.exe x64](https://github.com/ismaelvazquez182/ModuleInfo/releases/tag/v1.0.0.0)
+
 usage: ModuleInfo.exe <process_id>
 
 This tool prints all the loaded modules in a running processes memory space. It also prints where in memory those modules are located, the modules sizes, and the file path on disk to the modules.
