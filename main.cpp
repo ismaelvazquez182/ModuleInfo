@@ -13,7 +13,7 @@ int wmain(int argc, WCHAR *argv[])
 	HANDLE hSnapshot = ::CreateToolhelp32Snapshot(TH32CS_SNAPMODULE | TH32CS_SNAPMODULE32, procId);
 
 	if (hSnapshot == INVALID_HANDLE_VALUE) {
-		std::wcout << "Unable to create a snapshot of process 0x" << std::hex << procId << ", see MSDN error: " << ::GetLastError() << std::endl;
+		std::wcout << "Unable to create a snapshot of process id: " << std::dec << procId << ", see MSDN error: " << ::GetLastError() << std::endl;
 		return 1;
 	}
 
