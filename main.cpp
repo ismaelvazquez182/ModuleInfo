@@ -29,7 +29,7 @@ int wmain(int argc, WCHAR *argv[])
 		} while (::Module32Next(hSnapshot, &me));
 	}
 	else {
-		std::wcout << "Unable to iterate through the modules in process 0x" << std::hex << procId << ", see MSDN error: " << ::GetLastError() << std::endl;
+		std::wcout << "Unable to iterate through the modules in process 0x" << std::dec << procId << ", see MSDN error: " << ::GetLastError() << std::endl;
 		::CloseHandle(hSnapshot);
 		return 1;
 	}
