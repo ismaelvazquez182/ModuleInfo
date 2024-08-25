@@ -8,6 +8,7 @@ int wmain(int argc, WCHAR *argv[])
 		std::wcout << "[!] ModuleInfo.exe <ProcessID>" << std::endl;
 		return 0;
 	}
+
 	DWORD procId = _wtoi(argv[1]);
 	HANDLE hSnapshot = ::CreateToolhelp32Snapshot(TH32CS_SNAPMODULE | TH32CS_SNAPMODULE32, procId);
 
@@ -22,6 +23,7 @@ int wmain(int argc, WCHAR *argv[])
 		do {
 			std::wcout << "Module name: " << me.szModule
 				<< ", Base address: 0x" << std::hex << me.modBaseAddr
+				<< ", End address: 0x" << me.modBaseAddr + me.modBaseSize
 				<< ", Module size: " << me.modBaseSize
 				<< ", Path: " << me.szExePath << std::endl;
 		} while (::Module32Next(hSnapshot, &me));
