@@ -2,13 +2,13 @@
 #include <Windows.h>
 #include <tlhelp32.h>
 
-int main(int argc, char *argv[])
+int wmain(int argc, WCHAR *argv[])
 {
 	if (argc != 2) {
 		std::wcout << "[!] ModuleInfo.exe <ProcessID>" << std::endl;
 		return 0;
 	}
-	DWORD procId = atoi(argv[1]);
+	DWORD procId = _wtoi(argv[1]);
 	HANDLE hSnapshot = ::CreateToolhelp32Snapshot(TH32CS_SNAPMODULE | TH32CS_SNAPMODULE32, procId);
 
 	if (hSnapshot == INVALID_HANDLE_VALUE) {
